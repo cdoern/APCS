@@ -39,7 +39,8 @@ public class CharlieDoernWeatherAnalysis {
             j++; //increment loop
         }
         System.out.print(over + " days were above average."); //print results
-        System.out.println();
+        System.out.println("");
+        System.out.println("");
         System.out.println("Temperatures: "+ Arrays.toString(temps));
         int max = Integer.MIN_VALUE;
         int max2 = 0;
