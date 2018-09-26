@@ -43,20 +43,24 @@ public class CharlieDoernWeatherAnalysis {
         System.out.println("");
         System.out.println("Temperatures: "+ Arrays.toString(temps));
         int max = Integer.MIN_VALUE;
-        int max2 = 0;
+        int max2 = Integer.MIN_VALUE;
         for(int i = 0; i<temps.length;i++){
             if(temps[i]>max){
-                max2 = max;
                 max = temps[i];
             }
+             if(temps[i]>max2 && temps[i] <  max){
+                max2 = temps[i];
         }
-           int min = Integer.MAX_VALUE;
-        int min2 = 0;
+        }
+        int min = Integer.MAX_VALUE;
+        int min2 = Integer.MAX_VALUE;
         for(int i = 0; i<temps.length;i++){
             if(temps[i]<min){
-                min2 = min;
                 min = temps[i];
             }
+            if(temps[i]<min2 && temps[i] > min){
+                min2 = temps[i];
+        }
         }
         System.out.println("Two coldest days: " + min + ", " + min2);
         System.out.print("Two hottest days: "+ max +", " + max2);
