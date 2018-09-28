@@ -1,5 +1,6 @@
 //This program asks a user to select an amount of days, input temperatures of those days and calculates the avg emp and the amount of days over that avg and prints the results.
 import java.util.*; //import scanner
+
 public class CharlieDoernWeatherAnalysis {
     public static void main(String[] args){
         Scanner input = new Scanner(System.in);
@@ -38,5 +39,31 @@ public class CharlieDoernWeatherAnalysis {
             j++; //increment loop
         }
         System.out.print(over + " days were above average."); //print results
+        System.out.println("");
+        System.out.println("");
+        System.out.println("Temperatures: "+ Arrays.toString(temps));
+        int max = Integer.MIN_VALUE;
+        int max2 = Integer.MIN_VALUE;
+        for(int i = 0; i<temps.length;i++){
+            if(temps[i]>max){
+                max = temps[i];
+            }
+             if(temps[i]>max2 && temps[i] <  max){
+                max2 = temps[i];
+        }
+        }
+        int min = Integer.MAX_VALUE;
+        int min2 = Integer.MAX_VALUE;
+        for(int i = 0; i<temps.length;i++){
+            if(temps[i]<min){
+                min = temps[i];
+            }
+            if(temps[i]<min2 && temps[i] > min){
+                min2 = temps[i];
+        }
+        }
+        System.out.println("Two coldest days: " + min + ", " + min2);
+        System.out.print("Two hottest days: "+ max +", " + max2);
     }
+
 }
