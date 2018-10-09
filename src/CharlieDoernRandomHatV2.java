@@ -22,8 +22,8 @@ public class CharlieDoernRandomHatV2 {
             int team1 = 0;// first team initialized
             int team2 = 0;//second team initialized
             do{
-                team1 = (int)(Math.random()*(amount)); //set team one to a random number 0-(amount-1)
-                team2 = (int)(Math.random()*(amount));// set team two to a random number 0-(amount-1
+                team1 = (int)(Math.random()*(amount)); //set team one to a random number that falls within the index of the array
+                team2 = (int)(Math.random()*(amount));//set team two to a random number that falls within the index of the array
             }while(teams[team1] == teams[team2] || teams[team1]== 0 || teams[team2] == 0); //while they are different non-equal numbers
             System.out.println("Team " +teams[team1]+" vs "+teams[team2]+"."); //print the match up
             teams[team1] = 0; //set that entry into the array equal to zero
