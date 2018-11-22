@@ -2,23 +2,24 @@ import java.io.*;
 import java.util.*;
 public class CharlieDoernPersonalityTest {
     public static void main(String[] args)throws FileNotFoundException, IOException{
+        PrintStream document = new PrintStream("output.txt");
         String file = "";
         Scanner in = new Scanner(System.in);
-
-      //  while(file != "personality.txt") {
-            System.out.println("File name: ");
+        File fi = new File("");
+        while(fi.exists() ==false) {
+            System.out.print("File name: ");
             file = in.next();
-      //  }
+             fi = new File(file);
+       }
         Scanner doc = new Scanner(new File(file));
         int counter = 0;
         while(doc.hasNextLine()){
             String line = doc.nextLine();
             Scanner tokenizer = new Scanner(line);
-
             if(counter%2 == 0){
                 String name = line;
+                document.println(name+":");
                 System.out.println(name);
-                //print name to file here
             }
             else {
                 int[] total = new int[4];
@@ -46,16 +47,66 @@ public class CharlieDoernPersonalityTest {
                     counter2++;
                 }
                 System.out.println(Arrays.toString(total));
-
-                //for loop that goes through each index of total calculates a, and % of b and prints to file
-                /*
-                FileWriter fileWriter = new FileWriter("output.txt");
-                PrintWriter printWriter = new PrintWriter(fileWriter);
-             //   printWriter.print("Some String");
-             //   printWriter.printf("Product name is %s and its price is %d $", "iPhone", 1000);
-                printWriter.close();
-
-*/
+                String id = "";
+                int[] pers = new int[4];
+                for(int i = 0; i < total.length; i ++){
+                    if(i == 0){
+                        int a = 10 - total[i];
+                        document.print(a+"A-"+total[i]+"B ");
+                        double first = (total[i]/10.0)*100.0;
+                        int per = (int)(first);
+                        pers[i] = per;
+                        if(a<total[i]){
+                            id+="I";
+                        }
+                        else{
+                            id+="E";
+                        }
+                    }
+                   else if(i == 1){
+                        int a = 10 - total[i];
+                        document.print(a+"A-"+total[i]+"B ");
+                        double first = (total[i]/20.0)*100.0;
+                        int per = (int)(first);
+                        pers[i] = per;
+                        if(a<total[i]){
+                            id+="N";
+                        }
+                        else{
+                            id+="S";
+                        }
+                    }
+                    else if(i == 2){
+                        int a = 10 - total[i];
+                        document.print(a+"A-"+total[i]+"B ");
+                        double first = (total[i]/20.0)*100.0;
+                        int per = (int)(first);
+                        pers[i] = per;
+                        if(a<total[i]){
+                            id+="F";
+                        }
+                        else{
+                            id+="T";
+                        }
+                    }
+                    else if(i == 3){
+                        int a = 10 - total[i];
+                        document.println(a+"A-"+total[i]+"B ");
+                       double first = (total[i]/20.0)*100.0;
+                        int per = (int)(first);
+                        pers[i] = per;
+                        if(a<total[i]){
+                            id+="P";
+                        }
+                        else{
+                            id+="J";
+                        }
+                    }
+                }
+                document.print(Arrays.toString(pers));
+                document.println(" = "+id);
+                document.println("");
+                System.out.println(id);
             }
             counter++;
         }
