@@ -2,15 +2,21 @@ import java.io.*;
 import java.util.*;
 public class CharlieDoernPersonalityTest {
     public static void main(String[] args)throws FileNotFoundException, IOException{
-        PrintStream document = new PrintStream("output.txt");
+
         String file = "";
         Scanner in = new Scanner(System.in);
-        File fi = new File("");
+        System.out.print("File name: ");
+        file = in.next();
+       File fi = new File(file);
+      //  File fi = new File("");
         while(fi.exists() ==false) {
-            System.out.print("File name: ");
+            System.out.print("File not found. Try again: ");
             file = in.next();
              fi = new File(file);
        }
+        System.out.print("Output file name: ");
+        String output = in.next();
+        PrintStream document = new PrintStream(output);
         Scanner doc = new Scanner(new File(file));
         int counter = 0;
         while(doc.hasNextLine()){
