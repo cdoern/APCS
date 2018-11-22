@@ -9,7 +9,7 @@ public class CharlieDoernSum2 {
         catch(final Exception ex) { //catching the error if thrown
             throw new RuntimeException("Failed to find biggest num in file",ex);
         }
-        }
+    }
     public static void main(String[] args) throws FileNotFoundException{ //main method which like many other methods has the file not found exception which allows me to safely declare scanners with files
         Scanner in = new Scanner(new File("sum.txt"));
         int counter = add(in); //calling addition method which returns the number of lines as well
@@ -28,9 +28,9 @@ public class CharlieDoernSum2 {
                 String word = token.next(); //extract the number
                 int[] let = new int[ARRAY_LENGTH]; //create a temp array for that number
                 for(int i =0; i <word.length(); i++){// this for loop extracts each number from the string and adds it to an array from the back each index containing a digit
-                   char temp =(word.charAt(word.length()-1-i));
-                   String str = "" + temp;
-                   int tempi = Integer.parseInt(str);
+                    char temp =(word.charAt(word.length()-1-i));
+                    String str = "" + temp;
+                    int tempi = Integer.parseInt(str);
                     let[let.length -i-1] = tempi;
                 }
                 printingtwo(token, word); //calls  method to print the numbers being added together
@@ -38,16 +38,15 @@ public class CharlieDoernSum2 {
                     String s = "" + let[let.length - i - 1]; //pulling out each index from the char array
                     int nums = Integer.parseInt(s);
                     //
-                    num[num.length - i - 1] = nums + num[num.length - i - 1]; //adding it to whatever is in the same index of the larger sum array
-                        int remainder = num[num.length - i - 1] / 10; //calculating the remainder
-                        num[num.length - i - 1] = num[num.length - i - 1] % 10; //this fixes the issue of each index being greater than 10
-                        num[num.length - i - 2] += remainder; //adding the remainder or the carried number to the NEXT index
+                    num[num.length - i - 1] = nums + num[num.length - i - 1]; //the next 4 lines deal with adding, carrying over numbers and the remainder. this ensures you can add numbers that result in a sum higher than 10
+                    int remainder = num[num.length - i - 1] / 10;
+                    num[num.length - i - 1] = num[num.length - i - 1] % 10;
+                    num[num.length - i - 2] += remainder;
                 }
-
             }
             printingone(num,counter); //calling the method which prints the results
         }
-return(counter); //returning the amount of lines processed to be printed in main method
+        return(counter); //returning the amount of lines processed to be printed in main method
     }
     public static void printingone(int[] num,int counter){//this method prints the result
         boolean done = false;
@@ -64,8 +63,6 @@ return(counter); //returning the amount of lines processed to be printed in main
             System.out.print("0");
         }
         System.out.println(" "); //spacing
-
-
     }
     public static void printingtwo(Scanner token, String word){ //this method prints the added values
         System.out.print(word); //word is the string containing one of the numbers being added

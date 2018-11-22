@@ -2,7 +2,7 @@ import java.util.*;
 
 public class CharlieDoernMode {
     public static void main(String[] args){
-        System.out.print(liamPriceAlgo(124433567));
+        System.out.print(liamPriceAlgo(57135203));
     }
     public static int liamPriceAlgo(int num){
         int length = String.valueOf(num).length();
