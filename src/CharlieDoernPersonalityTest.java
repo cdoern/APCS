@@ -12,7 +12,7 @@ public class CharlieDoernPersonalityTest {
             file = in.next();
             fi = new File(file);
         }
-        System.out.print("Output file name: "); //ask for output file
+       System.out.print("Output file name: "); //ask for output file
         String output = in.next();
         PrintStream document = new PrintStream(output); //create output file
         readfile(document, file);
@@ -26,7 +26,7 @@ public class CharlieDoernPersonalityTest {
             if (counter % 2 == 0) { //if the line is an even # line it is a name to read the line and print to file
                 String name = line;
                 document.println(name + ":");
-                System.out.println(name);
+              //  System.out.println(name);
             } else { //else if not a name
                 int[] total = new int[4]; //create two arrays, one for the total amount of B's and one for the dashes
                 int[] dashes = new int[4];
@@ -67,7 +67,7 @@ public class CharlieDoernPersonalityTest {
                     }
                     counter2++; //increase the secondary counter to indicate you are in the nth number of the 10 question cylce
                 }
-                System.out.println(Arrays.toString(total));
+                //System.out.println(Arrays.toString(total));
                 printtofile(total, document,dashes); //call the file printing method
             }
             counter++; //increment the counter by 1 to indicate if the row is a name row or not
@@ -148,7 +148,7 @@ public class CharlieDoernPersonalityTest {
                 document.print(Arrays.toString(pers)); //print the array or percents
                 document.println(" = "+id); //print the ID "ENFP" for example
                 document.println(""); //spacing in the file
-                System.out.println(id);
+                //System.out.println(id);
             }
 
         }
