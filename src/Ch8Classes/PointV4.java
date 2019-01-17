@@ -7,14 +7,19 @@ public class PointV4 {
 
         private int x;
         private int y;
+        //static fields are owned by the class not the obj, they reside in classes
+        private static int objCount;
     //constructor for the point class
     //a constructor has no return type
+    //constructors only job is to initialize the state field
     public PointV4(int x, int y) {
+        objCount++;
        this.x = x;
        this.y = y;
     }
 
     public PointV4(){
+        objCount++;
         x = 0;
         y = 0;
 
@@ -38,6 +43,9 @@ public class PointV4 {
     public int getX(){
         return(x);
     }
+    public static int getObjCount(){
+        return objCount;
+    }
     public int getY(){
         return(y);
     }
@@ -47,5 +55,7 @@ public class PointV4 {
     public void setY(int y){
         this.y = y;
     }
-
+    public String toString(){
+        return("("+x+","+y+")");
+    }
 }
