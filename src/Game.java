@@ -9,6 +9,7 @@ public class Game {//implements MouseListener{
     static int x = 0;
     static int y = 0;
     static JTextField text = new JTextField();
+    static JLabel label = new JLabel("ex");
     static JTextField textpos = new JTextField();
     static String string = clicks+" Clicks";
     static String string2 = x +" "+y;
@@ -16,8 +17,8 @@ public class Game {//implements MouseListener{
         frame();
     }
     public static void frame() {
+       // label.setFocusable(true);
         JPanel mainPanel = new JPanel();
-
         mainPanel.setFocusable(true);
         mainPanel.requestFocusInWindow();
         mainPanel.addKeyListener(new KeyListener() {
@@ -30,10 +31,30 @@ public class Game {//implements MouseListener{
 
             @Override
             public void keyPressed(KeyEvent e) {
+                if(e.getKeyChar() == 'w'){
+                    y++;
+                }
+                if(e.getKeyChar() == 's'){
+                    y--;
+                }
+                if(e.getKeyChar() == 'a'){
+                    x--;
+                }
+                if(e.getKeyChar() == 'd'){
+                    x++;
+                }
                 System.out.println("Pressed " + e.getKeyChar());
-                x++;
-                y++;
+             //   x++;
+               // y++;
                 text.setText(x+" "+y);
+                label.setLocation(x,y);
+                label.revalidate();
+             //   label.repaint(x,y,20,20);//repaint();
+                label.setText(x+" "+y);
+
+               // label.setHorizontalTextPosition(x);
+                //label.setVerticalTextPosition(y);
+
 
             }
         });
@@ -45,6 +66,7 @@ public class Game {//implements MouseListener{
             }
         });
         JFrame frame = new JFrame("Game");
+        //frame.setFocusable(true);
         frame.getContentPane().add(mainPanel);
        /* frame.setFocusable(true);
         frame.setSize(500,500);
@@ -75,9 +97,17 @@ public class Game {//implements MouseListener{
         text.setBackground(Color.BLUE);
         text.setForeground(Color.GREEN);
         text.setBorder(BorderFactory.createLineBorder(Color.BLUE));
-        Font f = new Font("Engravers MT", Font.BOLD, 23);
+        Font f = new Font("Engravers MT", Font.BOLD, 10);
         text.setFont(f);
         text.setText(string2);
+        label.setText(string2);
+
+        //mainPanel.setFocusable(true);
+        label.setSize(20,20);
+        label.setVisible(true);
+        label.setLocation(0,0);
+        label.setFont(f);
+        frame.add(label, BorderLayout.NORTH);
         frame.add(text, BorderLayout.SOUTH);
         frame.getContentPane().setBackground(Color.BLUE);
         frame.setSize(600, 600);
