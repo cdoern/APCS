@@ -1,10 +1,13 @@
-package Ch9InheritanceP7;
+package Ch11Inheritance;
 
 
 public class MarketerP7V2 extends EmployeeP7V2 {
 
     public MarketerP7V2(String name, int experience) {
         super(name, experience);
+    }
+    public MarketerP7V2(String name) {
+        super(name);
     }
 
     public double getSalary() {

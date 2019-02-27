@@ -1,9 +1,13 @@
-package Ch9InheritanceP7;
+package Ch11Inheritance;
 
 public class LegalSecretaryP7V2 extends SecretaryP7V2 {
 
     public LegalSecretaryP7V2(String name, int experience) {
         super(name, experience);
+    }
+    public LegalSecretaryP7V2(String name) {
+        super(name);
+        //isActive = true;
     }
 
     public double getSalary() {

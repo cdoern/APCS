@@ -1,9 +1,13 @@
-package Ch9InheritanceP7;
+package Ch11Inheritance;
 
 public class LawyerP7V2 extends EmployeeP7V2 {
     //private boolean isActive;
     public LawyerP7V2(String name, int experience) {
         super(name, experience);
+        //isActive = true;
+    }
+    public LawyerP7V2(String name) {
+        super(name);
         //isActive = true;
     }
     public int getVacationDays() {
